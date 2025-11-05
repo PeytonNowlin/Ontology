@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  ontology-mapper:
+    build: .
+    container_name: ontology-mapper
+    ports:
+      - "8000:8000"
+    environment:
+      # Database configurations - customize these
+      - DB_1_HOST=${DB_1_HOST:-localhost}
+      - DB_1_PORT=${DB_1_PORT:-3306}
+      - DB_1_NAME=${DB_1_NAME:-database1}
+      - DB_1_USER=${DB_1_USER:-readonly_user}
+      - DB_1_PASSWORD=${DB_1_PASSWORD:-password}
+      
+      # API configuration
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - OUTPUT_DIR=/app/output
+    volumes:
+      # Mount output directory to persist ontology data
+      - ./output:/app/output
+      # Mount .env file for configuration
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    networks:
+      - ontology-network
+
+networks:
+  ontology-network:
+    driver: bridge
+

@@ -1,0 +1,26 @@
+# Database connections
+pymysql==1.1.0
+sqlalchemy==2.0.23
+
+# Data validation and models
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Configuration
+python-dotenv==1.0.0
+
+# Web framework for API
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+
+# CORS support
+fastapi-cors==0.0.6
+
+# Logging
+colorlog==6.8.0
+
+# CLI
+click==8.1.7
+rich==13.7.0
+

@@ -1,0 +1,156 @@
+.sidebar {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-primary);
+  animation: slideInLeft 0.3s ease-out;
+  flex-shrink: 0;
+}
+
+.sidebar-full-width {
+  width: 100%;
+  border-right: none;
+}
+
+.sidebar-header {
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--border-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.db-count {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  padding: 4px 8px;
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 8px;
+}
+
+.tree-item {
+  margin-bottom: 2px;
+}
+
+.tree-node {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+  position: relative;
+}
+
+.tree-node:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tree-node.selected {
+  background: rgba(74, 158, 255, 0.15);
+}
+
+.tree-node.selected::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 70%;
+  background: var(--accent-blue);
+  border-radius: 0 2px 2px 0;
+}
+
+.expand-button {
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.expand-button:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.node-icon {
+  flex-shrink: 0;
+}
+
+.database-icon {
+  color: var(--node-database);
+}
+
+.table-icon {
+  color: var(--node-table);
+}
+
+.column-icon {
+  color: var(--node-column);
+}
+
+.node-label {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.node-badge {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  background: var(--bg-tertiary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.column-type {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-family: 'Courier New', monospace;
+  flex-shrink: 0;
+}
+
+.tree-children {
+  margin-left: 24px;
+  padding-left: 8px;
+  border-left: 1px solid var(--border-primary);
+}
+
+.database-node {
+  font-weight: 500;
+}
+
+.table-node {
+  margin-left: 8px;
+}
+
+.column-node {
+  margin-left: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+

@@ -1,0 +1,174 @@
+.list-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  margin: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-primary);
+}
+
+.list-view-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-primary);
+  background: var(--bg-tertiary);
+}
+
+.list-view-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.table-count {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  background: var(--bg-primary);
+  border-radius: 8px;
+}
+
+.list-header {
+  display: flex;
+  padding: 0 24px;
+  background: var(--bg-tertiary);
+  border-bottom: 2px solid var(--border-secondary);
+  min-height: 48px;
+}
+
+.list-header-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.list-header-cell.sortable {
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.list-header-cell.sortable:hover {
+  color: var(--accent-blue);
+}
+
+.list-header-cell.sortable.active {
+  color: var(--accent-blue);
+}
+
+.sort-indicator {
+  margin-left: 4px;
+  font-size: 14px;
+}
+
+.list-view-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.list-row {
+  display: flex;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--border-primary);
+  cursor: pointer;
+  transition: all 0.15s;
+  background: var(--bg-secondary);
+}
+
+.list-row:hover {
+  background: var(--bg-tertiary);
+}
+
+.list-row.selected {
+  background: rgba(74, 158, 255, 0.1);
+  border-left: 3px solid var(--accent-blue);
+}
+
+.list-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  font-size: 14px;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.cell-icon {
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+}
+
+.cell-icon.database-icon {
+  color: var(--accent-blue);
+}
+
+.cell-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell-text.primary {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.cell-text.number {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.cell-badge {
+  padding: 4px 8px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.fk-indicator {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  background: var(--accent-blue);
+  color: white;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Custom scrollbar for list */
+.list-view-body ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.list-view-body ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.list-view-body ::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: 5px;
+}
+
+.list-view-body ::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+

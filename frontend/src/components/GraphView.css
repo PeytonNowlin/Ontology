@@ -1,0 +1,101 @@
+.graph-view {
+  flex: 1;
+  position: relative;
+  background: var(--bg-primary);
+}
+
+.graph-controls {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.expand-toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.expand-toggle-button:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.expand-info {
+  padding: 8px 14px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.react-flow__renderer {
+  background: var(--bg-primary);
+}
+
+.react-flow__node {
+  border-radius: 12px;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+
+.react-flow__controls {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(12px);
+}
+
+.react-flow__controls-button {
+  background: var(--bg-tertiary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+  transition: all 0.2s;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: white;
+}
+
+.react-flow__minimap {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(12px);
+  border-radius: 10px;
+}
+
+.react-flow__minimap-mask {
+  fill: rgba(74, 158, 255, 0.2);
+}
+
+.react-flow__attribution {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+}
+

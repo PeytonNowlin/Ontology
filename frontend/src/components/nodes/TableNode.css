@@ -1,0 +1,44 @@
+.table-node {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(168, 85, 247, 0.05));
+  border-color: rgba(168, 85, 247, 0.3);
+  min-width: 180px;
+}
+
+.table-node .node-icon {
+  color: var(--node-table);
+}
+
+.table-node .node-title {
+  font-size: 14px;
+}
+
+.table-stats {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.table-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.table-stat-item .stat-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.table-stat-item svg {
+  color: var(--accent-cyan);
+}
+
+.row-count {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
