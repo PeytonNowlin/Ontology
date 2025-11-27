@@ -9,8 +9,9 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Website](https://img.shields.io/badge/Website-nowlinautomation.com-orange?logo=google-chrome&logoColor=white)](https://nowlinautomation.com)
 
-[Features](#-features) • [Quick Start](#-quick-start) • [Tech Stack](#-tech-stack) • [Documentation](#-documentation) • [License](#-license)
+[Features](#-features) • [Quick Start](#-quick-start) • [Tech Stack](#-tech-stack) • [Documentation](#-documentation) • [Developer](#-developer) • [License](#-license)
 
 </div>
 
@@ -373,6 +374,15 @@ Contributions are welcome and appreciated! Whether you're fixing bugs, adding fe
 5. **Open** a Pull Request
 
 Please ensure your code follows the existing style and includes appropriate tests.
+
+---
+
+## 👨‍💻 Developer
+
+**Peyton Nowlin**
+
+- Email: [Peyton@nowlinautomation.com](mailto:Peyton@nowlinautomation.com)
+- Website: [nowlinautomation.com](https://nowlinautomation.com)
 
 ---
 
