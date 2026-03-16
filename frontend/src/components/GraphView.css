@@ -1,101 +1,128 @@
 .graph-view {
   flex: 1;
   position: relative;
-  background: var(--bg-primary);
+  /* Use the radial gradient background from main-content to tie it together */
+  background: transparent;
 }
 
 .graph-controls {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 24px;
+  left: 24px;
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .expand-toggle-button {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: 10px;
+  padding: 12px 20px;
   background: var(--bg-glass);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid var(--border-primary);
-  border-radius: 10px;
+  border-radius: 12px;
   color: var(--text-primary);
   font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .expand-toggle-button:hover {
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
-  color: white;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .expand-info {
-  padding: 8px 14px;
+  padding: 12px 16px;
   background: var(--bg-glass);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid var(--border-primary);
-  border-radius: 10px;
+  border-radius: 12px;
   color: var(--text-secondary);
   font-size: 13px;
-  font-weight: 500;
-  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* React Flow Overrides */
 .react-flow__renderer {
-  background: var(--bg-primary);
+  background: transparent;
 }
 
 .react-flow__node {
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 .react-flow__edge-path {
-  stroke-width: 2;
+  stroke-width: 2.5;
+  stroke: rgba(148, 163, 184, 0.3);
+  transition: stroke 0.3s;
+}
+
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: var(--accent-blue);
+  stroke-width: 3;
 }
 
 .react-flow__controls {
   background: var(--bg-glass) !important;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--border-primary) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+  overflow: hidden;
+  padding: 4px;
 }
 
 .react-flow__controls-button {
-  background: var(--bg-tertiary);
-  border-color: var(--border-primary);
-  color: var(--text-primary);
-  transition: all 0.2s;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border-primary) !important;
+  color: var(--text-secondary) !important;
+  transition: all 0.2s !important;
+  border-radius: 8px !important;
+  margin-bottom: 2px;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0;
 }
 
 .react-flow__controls-button:hover {
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
-  color: white;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--text-primary) !important;
 }
 
 .react-flow__minimap {
   background: var(--bg-glass) !important;
-  backdrop-filter: blur(12px);
-  border-radius: 10px;
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--border-primary) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
 }
 
 .react-flow__minimap-mask {
-  fill: rgba(74, 158, 255, 0.2);
+  fill: rgba(59, 130, 246, 0.15) !important;
 }
 
 .react-flow__attribution {
-  background: var(--bg-glass);
+  background: var(--bg-glass) !important;
   backdrop-filter: blur(12px);
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 10px;
+  padding: 4px 10px !important;
+  border-radius: 8px !important;
+  font-size: 11px !important;
+  color: var(--text-tertiary) !important;
+  border: 1px solid var(--border-primary);
+  opacity: 0.8;
 }
-
