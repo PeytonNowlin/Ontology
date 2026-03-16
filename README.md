@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🗂️ Database Ontology Mapper
+# Database Ontology Mapper
 
-**Automatically discover, visualize, and explore database schemas with an elegant, interactive interface**
+**Enterprise-grade automated schema discovery and topological mapping for relational database architectures.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
@@ -11,414 +11,191 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Website](https://img.shields.io/badge/Website-nowlinautomation.com-orange?logo=google-chrome&logoColor=white)](https://nowlinautomation.com)
 
-[Features](#-features) • [Quick Start](#-quick-start) • [Tech Stack](#-tech-stack) • [Documentation](#-documentation) • [Developer](#-developer) • [License](#-license)
+[System Overview](#system-overview) • [Core Capabilities](#core-capabilities) • [Architecture & Tech Stack](#architecture--tech-stack) • [Deployment & Execution](#deployment--execution) • [API Integration](#api-integration) • [Developer](#developer) • [License](#license)
 
 </div>
 
 ---
 
-## 📖 About
+## System Overview
 
-Database Ontology Mapper is a full-stack application that automatically extracts and visualizes database schemas from multiple MySQL/MariaDB databases. It provides an intuitive, Palantir-inspired interface for exploring complex database structures, making it perfect for:
+Database Ontology Mapper is a full-stack platform engineered to automatically extract, model, and visualize the semantic layer of complex relational databases. Built for enterprise environments, it establishes a read-only connection to existing data infrastructure to generate intuitive, interactive topological maps of schema architectures.
 
-- 📚 **Documentation** - Automatically generate visual documentation of your database architecture
-- 🔍 **Discovery** - Understand unfamiliar database schemas quickly
-- 🏗️ **Architecture Review** - Analyze relationships and data flow across multiple databases
-- 🎓 **Onboarding** - Help new team members understand database structures
-- 🔐 **Auditing** - Review database designs with read-only access
+The system facilitates rapid knowledge transfer, architectural auditing, and data governance by transforming disparate database schemas into a centralized, explorable ontology graph.
 
-## ✨ Features
+### Target Applications
+- **Architectural Auditing:** Conduct comprehensive reviews of database relationships and data lineage across multi-database environments.
+- **Automated Documentation:** Replace static schema documents with a living, automatically generated visual ontology.
+- **Enterprise Onboarding:** Accelerate developer and analyst understanding of complex, legacy database structures.
+- **Secure Discovery:** Utilize strictly read-only connections to ensure safe exploration without risk to production workloads.
 
-### Core Functionality
-- 🔍 **Automatic Schema Discovery** - Extract tables, columns, keys, and relationships from MySQL/MariaDB databases
-- 🌐 **Multi-Database Support** - Connect to and visualize multiple databases simultaneously
-- 🔗 **Relationship Mapping** - Automatically detect and visualize foreign key relationships
-- 🔐 **Read-Only Access** - Safe schema extraction using read-only database connections
+## Core Capabilities
 
-### User Interface
-- 🎨 **Modern UI Design** - Beautiful dark theme with glassmorphism effects inspired by Palantir
-- 📊 **Interactive Graph Visualization** - Explore schemas with zoom, pan, and interactive nodes using ReactFlow
-- 🔎 **Smart Search** - Find databases, tables, and columns instantly
-- 📱 **Responsive Design** - Professional interface with smooth animations via Framer Motion
-- 🎯 **Multiple View Modes** - Switch between hierarchical schema view and relationship-focused layouts
+### Schema Discovery Engine
+- **Automated Extraction:** Programmatically identify and catalog tables, columns, primary keys, and indices from MySQL/MariaDB instances.
+- **Topological Mapping:** Automatically detect and map foreign key constraints to establish complex relationship graphs.
+- **Multi-Tenant Support:** Concurrently interface with and aggregate schemas from multiple disparate database environments.
 
-### Developer Experience
-- 🚀 **REST API** - Programmatic access to all ontology data
-- 🛠️ **CLI Interface** - Command-line tools for schema extraction and server management
-- 🔄 **Hot Reload** - Development mode with auto-refresh
-- 🐳 **Docker Support** - Containerized deployment options
+### Visualization & Interface
+- **Interactive Graph Rendering:** High-performance, zoomable, and pannable node-edge visualizations of data structures.
+- **Adaptive Layouts:** Toggle between hierarchical schema representations and relationship-centric topologies.
+- **Advanced Global Search:** Instantly query across the entire ontology for specific databases, tables, or column entities.
 
-## 🛠️ Tech Stack
+### Integration & Extensibility
+- **RESTful Architecture:** Exposes a robust API for programmatic access to the extracted ontology data.
+- **Container-Ready:** Architected for seamless deployment via Docker in continuous integration pipelines.
 
-### Backend
-- **[FastAPI](https://fastapi.tiangolo.com/)** - Modern, high-performance web framework for building APIs
-- **[SQLAlchemy](https://www.sqlalchemy.org/)** - Database toolkit and ORM for schema extraction
-- **[Pydantic](https://docs.pydantic.dev/)** - Data validation using Python type annotations
-- **[Click](https://click.palletsprojects.com/)** - Command-line interface creation
+## Architecture & Tech Stack
 
-### Frontend
-- **[React 18](https://reactjs.org/)** - UI component library with hooks
-- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
-- **[ReactFlow](https://reactflow.dev/)** - Interactive graph visualization library
-- **[Framer Motion](https://www.framer.com/motion/)** - Animation library for React
-- **[Vite](https://vitejs.dev/)** - Next-generation frontend build tool
+The platform utilizes a decoupled architecture, separating the computationally intensive extraction engine from the client-side rendering application.
 
-### Development & Deployment
-- **Python 3.8+** with virtual environment
-- **Node.js 16+** with npm
-- **Docker** (optional) for containerized deployment
-- MySQL/MariaDB compatible
+### Backend Infrastructure
+- **FastAPI:** High-performance asynchronous API framework.
+- **SQLAlchemy:** Enterprise-grade database toolkit utilized for connection pooling and metadata extraction.
+- **Pydantic:** Strict data validation and settings management using Python type hinting.
+- **Click:** Command-line interface orchestration for administrative operations.
 
-## 🚀 Quick Start
+### Frontend Application
+- **React 18 & TypeScript:** Strongly typed, component-based user interface framework.
+- **ReactFlow:** Specialized library for rendering complex node-based graphs and interactive diagrams.
+- **Framer Motion:** Declarative animation library for fluid state transitions.
+- **Vite:** Next-generation frontend build tooling for optimized asset delivery.
 
-Get up and running in under 5 minutes!
+## Deployment & Execution
 
-### 1️⃣ Clone and Install
+### Prerequisites
+- Python 3.8 or higher
+- Node.js 16 or higher
+- Target MySQL/MariaDB database with explicitly granted read-only access.
+
+### 1. Repository Initialization
+
+Clone the repository and configure the backend virtual environment:
 
 ```bash
-# Clone the repository
 git clone https://github.com/yourusername/Ontology.git
 cd Ontology
 
-# Backend setup
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+# On Linux/macOS:
+source venv/bin/activate
+# On Windows:
+# venv\Scripts\activate
 
-# Frontend setup
+pip install -r requirements.txt
+```
+
+Initialize the frontend environment:
+
+```bash
 cd frontend
 npm install
 npm run build
 cd ..
 ```
 
-### 2️⃣ Configure Databases
+### 2. Environment Configuration
+
+Define the target database endpoints by modifying the environment configuration:
 
 ```bash
-# Copy environment template
 cp env.example .env
-
-# Edit .env with your database credentials
 ```
 
-### 3️⃣ Extract and Visualize
-
-```bash
-# Extract schema information
-python -m src.main extract
-
-# Start the server
-python -m src.main serve
-
-# Open http://localhost:8000 in your browser
-```
-
-**That's it!** 🎉 You should now see your database schemas visualized in the browser.
-
----
-
-## 📚 Documentation
-
-## Installation
-
-### Prerequisites
-
-- Python 3.8+
-- Node.js 16+
-- MySQL/MariaDB databases with read-only access
-
-### Backend Setup
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd Ontology
-```
-
-2. Create and activate a virtual environment:
-```bash
-python -m venv venv
-
-# On Windows
-venv\Scripts\activate
-
-# On Linux/Mac
-source venv/bin/activate
-```
-
-3. Install Python dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. Configure database connections:
-```bash
-# Copy the example environment file
-cp env.example .env
-
-# Edit .env with your database credentials
-```
-
-### Frontend Setup
-
-1. Navigate to the frontend directory:
-```bash
-cd frontend
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Build the frontend:
-```bash
-npm run build
-```
-
-## Configuration
-
-Edit the `.env` file to configure your database connections:
+Edit the `.env` file with the appropriate connection parameters:
 
 ```env
-# Database 1
+# Target Database Node 1
 DB_1_HOST=localhost
 DB_1_PORT=3306
 DB_1_NAME=database1
 DB_1_USER=readonly_user
 DB_1_PASSWORD=your_password
 
-# Database 2
+# Target Database Node 2
 DB_2_HOST=db2.example.com
 DB_2_PORT=3306
 DB_2_NAME=database2
 DB_2_USER=readonly_user
 DB_2_PASSWORD=your_password
 
-# Add more databases as needed (DB_3, DB_4, etc.)
-
-# API Configuration
+# Application Server Configuration
 API_HOST=0.0.0.0
 API_PORT=8000
-
-# Output Configuration
 OUTPUT_DIR=output
 ```
 
-### Creating Read-Only Users
+*Security Note: It is strictly recommended to execute the extraction using an isolated user with `SELECT` permissions restricted solely to the target schema and `information_schema`.*
 
-It's recommended to use read-only database users for security:
+### 3. Execution Pipeline
 
-```sql
--- MySQL/MariaDB
-CREATE USER 'readonly_user'@'%' IDENTIFIED BY 'secure_password';
-GRANT SELECT ON database_name.* TO 'readonly_user'@'%';
-GRANT SELECT ON information_schema.* TO 'readonly_user'@'%';
-FLUSH PRIVILEGES;
-```
-
-## Usage
-
-### 1. Extract Schema Information
-
-First, extract schema information from your configured databases:
+Execute the schema extraction process:
 
 ```bash
 python -m src.main extract
 ```
+*This process connects to the specified endpoints, constructs the relationship graph, and serializes the ontology to `output/ontology.json`.*
 
-This will:
-- Connect to all configured databases
-- Extract schema information (tables, columns, keys, relationships)
-- Save the ontology data to `output/ontology.json`
-
-Options:
-```bash
-# Specify custom output directory
-python -m src.main extract --output /path/to/output
-```
-
-### 2. Start the Web Server
-
-Launch the visualization server:
+Initialize the application server:
 
 ```bash
 python -m src.main serve
 ```
 
-Options:
-```bash
-# Custom host and port
-python -m src.main serve --host 0.0.0.0 --port 8000
+The application interface will be accessible via **http://localhost:8000**.
 
-# Enable auto-reload for development
-python -m src.main serve --reload
-```
+## API Integration
 
-### 3. View the Ontology
+The application exposes a standard REST API for direct access to the semantic model:
 
-Open your browser and navigate to:
-```
-http://localhost:8000
-```
-
-### Additional Commands
-
-View ontology statistics:
-```bash
-python -m src.main stats
-```
-
-## UI Features
-
-### Top Bar
-- **Search** - Find databases, tables, and columns
-- **Stats** - View database, table, and relationship counts
-- **View Modes** - Switch between Schema and Relationships views
-
-### Left Sidebar
-- **Schema Explorer** - Browse databases, tables, and columns in a tree view
-- **Expandable Nodes** - Click to expand/collapse database and table nodes
-- **Badge Counts** - See table and column counts at a glance
-
-### Graph View
-- **Interactive Nodes** - Click nodes to view details
-- **Zoom & Pan** - Explore large schemas with smooth navigation
-- **MiniMap** - Overview of the entire graph
-- **Schema View** - Hierarchical layout showing databases and tables
-- **Relationships View** - Circular layout emphasizing foreign key relationships
-
-### Detail Panel
-- **Database Details** - Host, port, table count, character set
-- **Table Details** - Columns, primary keys, foreign keys, indexes
-- **Column Details** - Data type, nullable, default value, constraints
-- **Relationship Info** - Foreign key references and rules
-
-## API Endpoints
-
-The backend provides a REST API for programmatic access:
-
-- `GET /api/ontology` - Complete ontology data
-- `GET /api/databases` - List all databases
-- `GET /api/databases/{name}` - Get specific database
-- `GET /api/databases/{db}/tables/{table}` - Get specific table
-- `GET /api/relationships` - All relationships
-- `GET /api/search?q={query}` - Search databases, tables, columns
-- `GET /api/stats` - Ontology statistics
+- `GET /api/ontology` - Retrieve the complete aggregated schema topology.
+- `GET /api/databases` - Enumerate all discovered database instances.
+- `GET /api/databases/{name}` - Retrieve specific database metadata.
+- `GET /api/databases/{db}/tables/{table}` - Retrieve schema definition for a specific table.
+- `GET /api/relationships` - Retrieve the global edge list of foreign key references.
+- `GET /api/search?q={query}` - Execute a global textual search across all entities.
+- `GET /api/stats` - Retrieve aggregate ontology metrics.
 
 ## Development
 
-### Frontend Development
+The project structure is organized to cleanly separate concerns between extraction, API serving, and client rendering:
 
-For frontend development with hot reload:
+```text
+Ontology/
+├── src/
+│   ├── api.py              # FastAPI service definitions
+│   ├── config.py           # Environment and state configuration
+│   ├── extractor.py        # Core schema discovery and mapping logic
+│   ├── models.py           # Pydantic data schemas
+│   └── main.py             # CLI application entrypoint
+├── frontend/               # React/Vite SPA application
+├── requirements.txt        # Python dependency manifest
+└── .env.example            # Environment configuration template
+```
+
+To run the frontend in development mode with hot-module replacement (HMR):
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-This starts a development server at `http://localhost:5173` with proxy to the backend.
+## Contributing
 
-### Project Structure
+We welcome contributions to the Database Ontology Mapper. Please follow standard pull request workflows. All code submissions must pass existing CI checks and adhere to the project's typing and style guidelines.
 
-```
-Ontology/
-├── src/
-│   ├── __init__.py
-│   ├── api.py              # FastAPI backend
-│   ├── config.py           # Configuration management
-│   ├── extractor.py        # Schema extraction logic
-│   ├── models.py           # Pydantic data models
-│   └── main.py             # CLI entry point
-├── frontend/
-│   ├── src/
-│   │   ├── components/     # React components
-│   │   ├── api.ts          # API client
-│   │   ├── types.ts        # TypeScript types
-│   │   ├── App.tsx         # Main app component
-│   │   └── index.css       # Global styles
-│   ├── package.json
-│   └── vite.config.ts
-├── requirements.txt
-├── .env.example
-└── README.md
-```
-
-## Troubleshooting
-
-### "No ontology data available" error
-- Make sure you've run `python -m src.main extract` first
-- Check that the `output/ontology.json` file exists
-- Verify database credentials in `.env` are correct
-
-### Connection failures
-- Verify database host and port are accessible
-- Check that read-only user has proper permissions
-- Ensure firewall rules allow connections
-
-### Frontend not loading
-- Rebuild the frontend: `cd frontend && npm run build`
-- Check that the API server is running
-- Clear browser cache
-
-## 🤝 Contributing
-
-Contributions are welcome and appreciated! Whether you're fixing bugs, adding features, or improving documentation, your help makes this project better.
-
-### How to Contribute
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add some amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
-
-Please ensure your code follows the existing style and includes appropriate tests.
-
----
-
-## 👨‍💻 Developer
+## Developer
 
 **Peyton Nowlin**
 
-- Email: [Peyton@nowlinautomation.com](mailto:Peyton@nowlinautomation.com)
-- Website: [nowlinautomation.com](https://nowlinautomation.com)
+- Contact: [Peyton@nowlinautomation.com](mailto:Peyton@nowlinautomation.com)
+- Web: [nowlinautomation.com](https://nowlinautomation.com)
 
----
+## License
 
-## 📄 License
+This software is distributed under the **MIT License**. Refer to the [LICENSE](LICENSE) file for the complete terms of distribution and usage.
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for full details.
+### Acknowledgments
 
-### MIT License Summary
-
-```
-Copyright (c) 2024 Database Ontology Mapper
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-```
-
-**In plain English:** You can freely use, modify, and distribute this software for any purpose, including commercial applications, as long as you include the original copyright notice.
-
----
-
-## 🙏 Acknowledgments
-
-- **UI Design** - Inspired by [Palantir Foundry](https://www.palantir.com/platforms/foundry/) data visualization tools
-- **Graph Visualization** - Powered by [ReactFlow](https://reactflow.dev/)
-- **Icons** - [Lucide React](https://lucide.dev/) icon library
-- **Built With** - React, TypeScript, FastAPI, SQLAlchemy
-
-
+- Interface conceptualization inspired by enterprise data integration platforms such as Palantir Foundry.
+- Graph rendering engine powered by ReactFlow.
