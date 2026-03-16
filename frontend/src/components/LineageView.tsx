@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import ReactFlow, {
   Node,
   Edge,
@@ -26,6 +26,8 @@ interface LineageViewProps {
   onSelectNode: (node: SelectedNode) => void;
   searchQuery: string;
 }
+
+import { Database, Table } from '../types';
 
 export default function LineageView({
   ontology,
@@ -103,6 +105,16 @@ export default function LineageView({
     [ontology, depth, direction]
   );
 
+  const tableLookup = useMemo(() => {
+    const lookup = new Map<string, { db: Database; table: Table }>();
+    ontology.databases.forEach(db => {
+      db.tables.forEach(table => {
+        lookup.set(`${db.name}:::${table.name}`, { db, table });
+      });
+    });
+    return lookup;
+  }, [ontology]);
+
   const generateLineageLayout = useCallback(() => {
     const nodeList: Node[] = [];
     const edgeList: Edge[] = [];
@@ -116,25 +128,27 @@ export default function LineageView({
     const layerSpacing = 300;
 
     // Add center node
-    const database = ontology.databases.find(db => db.name === selectedNode.database);
-    const table = database?.tables.find(t => t.name === selectedNode.table);
+    const centerKey = `${selectedNode.database}:::${selectedNode.table}`;
+    const centerEntry = tableLookup.get(centerKey);
 
-    if (!table || !database) {
+    if (!centerEntry) {
       return { nodes: nodeList, edges: edgeList };
     }
 
-        nodeList.push({
-          id: `table-${selectedNode.database}-${selectedNode.table}`,
-          type: 'table',
-          position: { x: centerX, y: centerY },
-          data: {
-            label: selectedNode.table || '',
-            table,
-            database: selectedNode.database,
-            isSelected: true,
-            onSelect: () => onSelectNode(selectedNode),
-          },
-        });
+    const { db: database, table } = centerEntry;
+
+    nodeList.push({
+      id: `table-${selectedNode.database}-${selectedNode.table}`,
+      type: 'table',
+      position: { x: centerX, y: centerY },
+      data: {
+        label: selectedNode.table || '',
+        table,
+        database: selectedNode.database,
+        isSelected: true,
+        onSelect: () => onSelectNode(selectedNode),
+      },
+    });
 
     // Get all related tables
     const related = getTableRelationships(
@@ -168,8 +182,9 @@ export default function LineageView({
 
       tables.forEach((item, index) => {
         const y = startY + index * ySpacing;
-        const db = ontology.databases.find(d => d.name === item.db);
-        const tbl = db?.tables.find(t => t.name === item.table);
+        const entry = tableLookup.get(`${item.db}:::${item.table}`);
+        const db = entry?.db;
+        const tbl = entry?.table;
 
         if (tbl && db) {
           nodeList.push({
@@ -196,8 +211,9 @@ export default function LineageView({
 
       tables.forEach((item, index) => {
         const y = startY + index * ySpacing;
-        const db = ontology.databases.find(d => d.name === item.db);
-        const tbl = db?.tables.find(t => t.name === item.table);
+        const entry = tableLookup.get(`${item.db}:::${item.table}`);
+        const db = entry?.db;
+        const tbl = entry?.table;
 
         if (tbl && db) {
           nodeList.push({
@@ -238,7 +254,7 @@ export default function LineageView({
     });
 
     return { nodes: nodeList, edges: edgeList };
-  }, [ontology, selectedNode, onSelectNode, getTableRelationships]);
+  }, [selectedNode, onSelectNode, getTableRelationships, tableLookup]);
 
   useEffect(() => {
     const { nodes: newNodes, edges: newEdges } = generateLineageLayout();
